@@ -129,7 +129,7 @@ loglevel 3
 
 on fs
     start mount_emmc
-    wait /mnt/emmc/multiboot/EL29/zImage
+    wait /emmc/multiboot/EL29/zImage
     start losetup_system
     wait /sys/devices/virtual/block/loop2/loop/backing_file
     start losetup_data
@@ -1104,7 +1104,7 @@ service wimax_renew /system/bin/dhcpcd -n uwbr0
         oneshot
 
 # exec /sbin/busybox mount -t vfat /dev/block/vold/179:1 /mnt/sdcard
-service mount_emmc /sbin/busybox mount -t vfat /dev/block/mmcblk0p11 /mnt/emmc
+service mount_emmc /sbin/busybox mount -t vfat /dev/block/mmcblk0p11 /emmc
         user root
         disabled
         oneshot
